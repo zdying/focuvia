@@ -1,14 +1,14 @@
 :root {
   font-family: system-ui, sans-serif;
-  color: #0f172a;
-  background: #f6f8fb;
+  color: #252133;
+  background: #f7f5fb;
   font-size: 14px;
 }
 
 * {
   box-sizing: border-box;
   scrollbar-width: thin;
-  scrollbar-color: #cbd5e1 transparent;
+  scrollbar-color: #d2c9df transparent;
 }
 
 body {
@@ -25,14 +25,10 @@ header {
 }
 
 .logo {
-  display: grid;
-  place-items: center;
   width: 36px;
   height: 36px;
-  border-radius: 12px;
-  background: #0f172a;
-  color: #fff;
-  font-size: 18px;
+  flex: none;
+  object-fit: contain;
 }
 
 h1 {
@@ -42,13 +38,13 @@ h1 {
 
 header p {
   margin: 2px 0 0;
-  color: #64748b;
+  color: #6d637e;
   font-size: 12px;
 }
 
 #saved {
   margin-left: auto;
-  color: #15803d;
+  color: #7050b8;
   font-size: 12px;
 }
 
@@ -56,7 +52,7 @@ header p {
   margin-bottom: 12px;
   padding: 14px;
   border-radius: 16px;
-  background: #0f172a;
+  background: #302345;
   color: #fff;
 }
 
@@ -66,14 +62,14 @@ header p {
 }
 
 .total small {
-  color: #cbd5e1;
+  color: #ded5ed;
   font-size: 13px;
   font-weight: 400;
 }
 
 .stats p {
   margin: 4px 0 10px;
-  color: #cbd5e1;
+  color: #ded5ed;
   font-size: 12px;
 }
 
@@ -98,14 +94,14 @@ header p {
 .card {
   margin-bottom: 10px;
   padding: 4px 14px;
-  border: 1px solid #e8edf3;
+  border: 1px solid #e6e0ef;
   border-radius: 16px;
   background: #fff;
 }
 
 h2 {
   margin: 10px 0 2px;
-  color: #64748b;
+  color: #6d637e;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -117,7 +113,7 @@ label {
   align-items: center;
   gap: 10px;
   padding: 11px 0;
-  border-top: 1px solid #e8edf3;
+  border-top: 1px solid #e6e0ef;
   cursor: pointer;
 }
 
@@ -128,7 +124,7 @@ label:first-of-type {
 label small {
   display: block;
   margin-top: 2px;
-  color: #64748b;
+  color: #6d637e;
   font-size: 12px;
 }
 
@@ -140,7 +136,7 @@ input[type="checkbox"] {
   height: 22px;
   margin: 0;
   border-radius: 11px;
-  background: #cbd5e1;
+  background: #d2c9df;
   cursor: pointer;
 }
 
@@ -157,7 +153,7 @@ input[type="checkbox"]::before {
 }
 
 input[type="checkbox"]:checked {
-  background: #2563eb;
+  background: #7050b8;
 }
 
 input[type="checkbox"]:checked::before {
@@ -165,21 +161,21 @@ input[type="checkbox"]:checked::before {
 }
 
 input:focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid #7050b8;
   outline-offset: 3px;
 }
 
 input[type="number"] {
   width: 76px;
   padding: 9px 10px;
-  border: 1px solid #e8edf3;
+  border: 1px solid #e6e0ef;
   border-radius: 10px;
   font: inherit;
   text-align: center;
 }
 
 footer {
-  color: #64748b;
+  color: #6d637e;
   font-size: 11px;
   line-height: 1.5;
   text-align: center;

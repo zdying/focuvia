@@ -24,7 +24,7 @@
       "run_at": "document_idle"
     }
   ],
-  "description": "YouTube focus: hide Shorts, feeds and comments, set daily watch limits, and show estimated dislikes.",
+  "description": "Hide YouTube Shorts, recommendations and comments. Set a daily watch limit that pauses playback when time is up.",
   "host_permissions": [
     "https://www.youtube.com/*",
     "https://returnyoutubedislikeapi.com/*"
@@ -38,11 +38,11 @@
   "background": {
     "service_worker": "background.js"
   },
-  "name": "Focuvia",
+  "name": "Focuvia — Hide YouTube Shorts & Distractions",
   "permissions": [
     "storage"
   ],
-  "version": "0.2.1",
+  "version": "0.2.2",
   "minimum_chrome_version": "120",
   "homepage_url": "https://zdying.github.io/focuvia/"
 }

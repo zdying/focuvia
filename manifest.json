@@ -24,7 +24,7 @@
       "run_at": "document_idle"
     }
   ],
-  "description": "YouTube focus extension: hide Shorts, recommendations, comments and homepage feed. Hover to reveal navigation and video info. Daily watch limit and estimated dislike counts.",
+  "description": "YouTube focus: hide Shorts, feeds and comments, set daily watch limits, and show estimated dislikes.",
   "host_permissions": [
     "https://www.youtube.com/*",
     "https://returnyoutubedislikeapi.com/*"
@@ -43,5 +43,6 @@
     "storage"
   ],
   "version": "0.2.0",
-  "minimum_chrome_version": "120"
+  "minimum_chrome_version": "120",
+  "homepage_url": "https://zdying.github.io/focuvia/"
 }

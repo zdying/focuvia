@@ -40,11 +40,11 @@
       <h1>How to hide YouTube Shorts on desktop and mobile</h1>
       <p class="meta">Updated <time datetime="2026-11-18">November 18, 2026</time></p>
       <p><strong>To hide Shorts on desktop, use a browser extension that supports your browser and YouTube’s current layout.</strong> In the YouTube mobile app, browser extensions do not apply; device app timers can limit usage instead. Hiding Shorts elements is different from blocking every way to access Shorts.</p>
-      <p class="notice">Focuvia is in development. There are no public store installation links yet. Its current target is desktop Chrome 120+ on <code>www.youtube.com</code>; Edge and Firefox compatibility remain unverified.</p>
+      <p class="notice">Focuvia is in development. There are no public store installation links yet; developer packages are available from <a href="https://github.com/zdying/focuvia/releases/tag/v0.2.0">GitHub prereleases</a>. Desktop packages target Chrome/Edge 120+ and Firefox 142+ on <code>www.youtube.com</code>. Firefox development installation is temporary until signing is complete.</p>
       <nav aria-label="Guide contents"><a href="#desktop">Desktop setup</a> · <a href="#mobile">iPhone and Android</a> · <a href="#limits">Hiding vs. blocking</a> · <a href="#troubleshooting">Troubleshooting</a></nav>
-      <h2 id="desktop">Desktop: Focuvia setup after public release</h2>
+      <h2 id="desktop">Desktop: Focuvia developer preview setup</h2>
       <ol>
-        <li><strong>Check availability first.</strong> Visit the <a href="../#install">Focuvia release section</a>. Wait for a verified store link and confirmed browser compatibility. A product preview is not an installation link.</li>
+        <li><strong>Check availability first.</strong> Visit the <a href="../#install">Focuvia release section</a>. Download and extract the matching developer package. Chrome and Edge use Load unpacked; Firefox uses Load Temporary Add-on. Follow the <a href="https://github.com/zdying/focuvia#install">browser-specific installation steps</a>. Store installation is not available yet.</li>
         <li><strong>Review permissions and install.</strong> The current build requests storage, desktop YouTube access and access to the Return YouTube Dislike API. See the <a href="../privacy.html">privacy details</a> before enabling it.</li>
         <li><strong>Review the popup settings.</strong> In the current build, Hide Shorts, Hide recommendations and Hide comments default to on. Hiding the homepage feed is a separate option and defaults to off.</li>
         <li><strong>Decide whether to show dislike estimates.</strong> They are on by default and send the current video ID to a third-party service. Turn “Show estimated dislike count” off if you do not want these requests.</li>

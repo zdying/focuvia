@@ -1,6 +1,6 @@
 (async () => {
-  const { defaults, readSettings } = Focuvia;
-  let settings = readSettings(await chrome.storage.sync.get(defaults));
+  const { api, defaults, readSettings } = Focuvia;
+  let settings = readSettings(await api.storage.sync.get(defaults));
   const page = Focuvia.createPage();
   const timer = Focuvia.createWatchTimer();
 
@@ -27,7 +27,7 @@
   function destroy() {
     page.destroy();
     timer.destroy();
-    chrome.storage.onChanged.removeListener(settingsChanged);
+    api.storage.onChanged.removeListener(settingsChanged);
     document.removeEventListener("yt-navigate-finish", navigate);
     window.removeEventListener("popstate", navigate);
     window.removeEventListener("pagehide", pageHidden);
@@ -43,7 +43,7 @@
   }
 
   update();
-  chrome.storage.onChanged.addListener(settingsChanged);
+  api.storage.onChanged.addListener(settingsChanged);
   document.addEventListener("yt-navigate-finish", navigate);
   window.addEventListener("popstate", navigate);
   window.addEventListener("pagehide", pageHidden);

@@ -45,5 +45,5 @@
     return Math.max(0, Math.min(elapsed, progress, 5));
   }
 
-  globalThis.Focuvia = { defaults, readSettings, localDay, emptyDay, isBlocked, watchedBetween };
+  globalThis.Focuvia = { api: globalThis.browser || globalThis.chrome, defaults, readSettings, localDay, emptyDay, isBlocked, watchedBetween };
 })();

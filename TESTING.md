@@ -1,6 +1,6 @@
 # 0.2.0 验证记录
 
-测试命令：`npm test`。6 个测试文件、26 个用例通过。
+测试命令：`npm test`、`npm run package`。7 个 JavaScript 测试文件、27 个用例通过，另外通过 Python 包结构测试（分别检查 Chromium 和 Firefox 两个包）。
 
 自动化测试执行实际脚本，不裁剪初始化代码或替换业务函数。DOM 使用 jsdom，Chrome 存储、消息、媒体状态及网络响应使用测试替身。jsdom 未实现的原生 dialog 打开/关闭方法在测试环境中模拟，因此测试不验证浏览器焦点管理或视觉布局。
 
@@ -14,7 +14,17 @@
 - 弹窗实时统计、快速修改多个设置、数值约束。
 - 站内导航、设置更新、页面恢复与资源释放；manifest 入口及脚本语法。
 
-真实浏览器连接仍返回 `The browser access host is unavailable`，没有进行 Chrome / YouTube 页面验收。以下需要真实页面验证：
+## 跨浏览器和打包验证
+
+- Chrome 157.0.8103.78、Edge 157.0.4341.57：使用独立临时配置实际加载 Chromium 包，验证后台消息、弹窗初始化、设置保存及刷新后的持久化。
+- Firefox 159.0：通过 geckodriver 和独立临时配置安装未签名 Firefox ZIP，验证后台消息、弹窗初始化、设置保存及刷新后的持久化。另有自动化测试覆盖只有 `browser` 命名空间且没有 `importScripts` 的环境。
+- Mozilla `web-ext lint --source-dir dist/firefox --warnings-as-errors`：0 错误、0 警告。
+- ZIP 校验：根目录 manifest、引用的脚本/样式/图标、GPLv3、Firefox 后台入口及数据传输声明；排除官网、测试、依赖和本地配置。
+- Chrome/Edge 使用 service worker，Firefox 使用按顺序加载的 `shared.js` 和 `background.js`。Firefox 最低版本 142，以支持内置数据传输告知。
+
+## 待验收
+
+以下仍需要真实 YouTube 页面验证；弹窗及后台检查不能代替网站布局验收：
 
 1. 首页和搜索页的 Shorts 识别，滚动加载后的新增卡片。
 2. 播放页顶栏和信息的鼠标/键盘显示，窗口缩放及剧场模式下的布局。

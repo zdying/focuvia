@@ -12,7 +12,7 @@ function event() {
   };
 }
 
-function createChrome(initial = {}, clock = { date: new Date() }) {
+function createChrome(initial = {}, clock = { date: new Date() }, namespace = "chrome") {
   const changed = event();
   const messages = event();
   const data = { local: structuredClone(initial.local || {}), sync: structuredClone(initial.sync || {}) };
@@ -52,8 +52,12 @@ function createChrome(initial = {}, clock = { date: new Date() }) {
   class ClockDate extends Date {
     constructor(...args) { super(...(args.length ? args : [clock.date])); }
   }
-  const context = vm.createContext({ chrome, Date: ClockDate, console });
-  context.importScripts = file => vm.runInContext(fs.readFileSync(file, "utf8"), context, { filename: file });
+  const context = vm.createContext({ [namespace]: chrome, Date: ClockDate, console });
+  if (namespace === "browser") {
+    vm.runInContext(fs.readFileSync("shared.js", "utf8"), context, { filename: "shared.js" });
+  } else {
+    context.importScripts = file => vm.runInContext(fs.readFileSync(file, "utf8"), context, { filename: file });
+  }
   vm.runInContext(fs.readFileSync("background.js", "utf8"), context, { filename: "background.js" });
   return { chrome, send, data, clock };
 }

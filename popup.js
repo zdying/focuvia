@@ -1,8 +1,8 @@
 (async () => {
-  const { defaults, readSettings, localDay, emptyDay } = Focuvia;
+  const { api, defaults, readSettings, localDay, emptyDay } = Focuvia;
   const elements = Object.fromEntries(Object.keys(defaults).map(key => [key, document.getElementById(key)]));
   const saved = document.getElementById("saved");
-  let settings = readSettings(await chrome.storage.sync.get(defaults));
+  let settings = readSettings(await api.storage.sync.get(defaults));
   let day = emptyDay();
   let savedTimeout;
 
@@ -31,7 +31,7 @@
       const value = element.type === "checkbox" ? element.checked : element.value;
       const next = readSettings({ ...settings, [key]: value });
       try {
-        await chrome.storage.sync.set({ [key]: next[key] });
+        await api.storage.sync.set({ [key]: next[key] });
         settings[key] = next[key];
         render();
         saved.textContent = "Saved.";
@@ -58,13 +58,13 @@
     render();
   }
 
-  chrome.storage.onChanged.addListener(storageChanged);
+  api.storage.onChanged.addListener(storageChanged);
   window.addEventListener("pagehide", () => {
     clearTimeout(savedTimeout);
-    chrome.storage.onChanged.removeListener(storageChanged);
+    api.storage.onChanged.removeListener(storageChanged);
   }, { once: true });
   render();
-  const result = await chrome.runtime.sendMessage({ type: "watch", action: "read" });
+  const result = await api.runtime.sendMessage({ type: "watch", action: "read" });
   if (result.error) throw new Error(result.error);
   if (result.date === localDay() && result.revision >= day.revision) day = result;
   render();

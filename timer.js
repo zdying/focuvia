@@ -1,5 +1,5 @@
 Focuvia.createWatchTimer = function () {
-  const { localDay, emptyDay, isBlocked, watchedBetween } = Focuvia;
+  const { api, localDay, emptyDay, isBlocked, watchedBetween } = Focuvia;
   let settings = Focuvia.defaults;
   let day = emptyDay();
   let loaded = false;
@@ -19,7 +19,7 @@ Focuvia.createWatchTimer = function () {
   }
 
   async function send(action, seconds) {
-    const result = await chrome.runtime.sendMessage({ type: "watch", action, seconds });
+    const result = await api.runtime.sendMessage({ type: "watch", action, seconds });
     if (result.error) throw new Error(result.error);
     if (action !== "close") acceptDay(result);
   }
@@ -135,7 +135,7 @@ Focuvia.createWatchTimer = function () {
   const events = ["play", "playing", "pause", "waiting", "seeking", "seeked", "ended", "loadedmetadata"];
   events.forEach(name => document.addEventListener(name, playbackChanged, true));
   document.addEventListener("visibilitychange", playbackChanged);
-  chrome.storage.onChanged.addListener(storageChanged);
+  api.storage.onChanged.addListener(storageChanged);
   const interval = setInterval(tick, 1000);
   tick();
 
@@ -155,7 +155,7 @@ Focuvia.createWatchTimer = function () {
       clearInterval(interval);
       events.forEach(name => document.removeEventListener(name, playbackChanged, true));
       document.removeEventListener("visibilitychange", playbackChanged);
-      chrome.storage.onChanged.removeListener(storageChanged);
+      api.storage.onChanged.removeListener(storageChanged);
       overlay?.remove();
     }
   };

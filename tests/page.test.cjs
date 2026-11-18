@@ -1,5 +1,6 @@
 const { test } = require("node:test");
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
 const { browser, load, deferred, settle } = require("./helpers.cjs");
 
 function page(t, options) {
@@ -106,4 +107,37 @@ test("the dislike badge follows a replaced video-info container without another 
   await new Promise(resolve => window.requestAnimationFrame(() => window.requestAnimationFrame(resolve)));
   assert.equal(badge.nextElementSibling, window.document.querySelector("#below"));
   assert.equal(requests, 1);
+});
+
+test("search Shorts shelves hide completely, including late results, and restore with the toggle", async t => {
+  const { window, controller, settings } = page(t, {
+    url: "https://www.youtube.com/results?search_query=shorts",
+    html: `<style>${fs.readFileSync("content.css", "utf8")}</style>
+      <ytd-search>
+        <grid-shelf-view-model id="first-shelf"><h2>Shorts</h2>
+          <ytm-shorts-lockup-view-model><a href="/shorts/first">First Short</a></ytm-shorts-lockup-view-model>
+        </grid-shelf-view-model>
+        <grid-shelf-view-model id="second-shelf"><h2>Shorts</h2></grid-shelf-view-model>
+        <grid-shelf-view-model id="regular-shelf"><a href="/watch?v=regular">Shorts editing tutorial</a></grid-shelf-view-model>
+        <ytd-video-renderer id="regular-video"><a href="/watch?v=another">Regular result</a></ytd-video-renderer>
+      </ytd-search>
+      <ytd-browse page-subtype="home"><ytd-reel-shelf-renderer id="home-shorts">Shorts</ytd-reel-shelf-renderer></ytd-browse>`
+  });
+  const doc = window.document;
+  const display = id => window.getComputedStyle(doc.getElementById(id)).display;
+  controller.update(settings);
+  assert.equal(display("first-shelf"), "none");
+  assert.equal(display("home-shorts"), "none");
+  assert.notEqual(display("regular-shelf"), "none");
+  assert.notEqual(display("regular-video"), "none");
+  doc.getElementById("second-shelf").insertAdjacentHTML("beforeend", `
+    <ytm-shorts-lockup-view-model-v2><a href="https://www.youtube.com/shorts/second">Second Short</a></ytm-shorts-lockup-view-model-v2>`);
+  await new Promise(resolve => window.requestAnimationFrame(() => window.requestAnimationFrame(resolve)));
+  assert.equal(display("second-shelf"), "none");
+  controller.update({ ...settings, hideShorts: false });
+  assert.notEqual(display("first-shelf"), "none");
+  assert.notEqual(display("second-shelf"), "none");
+  controller.update(settings);
+  assert.equal(display("first-shelf"), "none");
+  assert.equal(display("second-shelf"), "none");
 });

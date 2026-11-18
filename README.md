@@ -21,13 +21,13 @@
 
 [Website](https://zdying.github.io/focuvia/) · [Preview downloads](https://github.com/zdying/focuvia/releases) · [Privacy details](https://zdying.github.io/focuvia/privacy.html)
 
-Browser-store listings are not available yet. Version 0.2.0 is a development preview, not a signed store release. Desktop targets are Chrome/Edge 120+ and Firefox 142+.
+Browser-store listings are not available yet. Version 0.2.1 is a development preview, not a signed store release. Desktop targets are Chrome/Edge 120+ and Firefox 142+.
 
 ## Install
 
 ### Chrome and Edge
 
-1. Download `focuvia-0.2.0-chromium.zip` from the preview release and extract it.
+1. Download `focuvia-0.2.1-chromium.zip` from the preview release and extract it.
 2. Open `chrome://extensions` (Chrome) or `edge://extensions` (Edge), and enable **Developer mode**.
 3. Select **Load unpacked** and choose the extracted folder containing `manifest.json`.
 4. After updates, reload the extension and refresh existing YouTube tabs.
@@ -36,7 +36,7 @@ You can also load this repository's root directory directly during development.
 
 ### Firefox
 
-1. Download `focuvia-0.2.0-firefox.zip` from the preview release and extract it.
+1. Download `focuvia-0.2.1-firefox.zip` from the preview release and extract it.
 2. Open `about:debugging#/runtime/this-firefox`.
 3. Select **Load Temporary Add-on** and choose the extracted `manifest.json`.
 
@@ -56,8 +56,8 @@ npm run package
 
 Outputs:
 
-- `dist/focuvia-0.2.0-chromium.zip` — Chrome and Edge runtime package.
-- `dist/focuvia-0.2.0-firefox.zip` — unsigned Firefox development/submission package.
+- `dist/focuvia-0.2.1-chromium.zip` — Chrome and Edge runtime package.
+- `dist/focuvia-0.2.1-firefox.zip` — unsigned Firefox development/submission package.
 - `dist/chromium/` and `dist/firefox/` — folders for developer loading.
 - `dist/SHA256SUMS` — SHA-256 checksums for the ZIP files.
 
@@ -67,7 +67,7 @@ Packages contain runtime assets and GPLv3, excluding website files, tests, devel
 
 ## Releases
 
-CI runs tests and packaging on pushes and pull requests. A version tag matching the manifest, such as `v0.2.0`, runs the checks and publishes both ZIPs and their checksums as a **GitHub prerelease**. A GitHub prerelease does not publish or sign an extension in any browser store.
+CI runs tests and packaging on pushes and pull requests. A version tag matching the manifest, such as `v0.2.1`, runs the checks and publishes both ZIPs and their checksums as a **GitHub prerelease**. A GitHub prerelease does not publish or sign an extension in any browser store.
 
 ## Code
 

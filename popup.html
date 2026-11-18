@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Focuvia</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <span class="logo" aria-hidden="true">▶</span>
+    <div>
+      <h1>Focuvia</h1>
+      <p>Free · No account · No tracking</p>
+    </div>
+    <output id="saved" role="status"></output>
+  </header>
+
+  <main>
+    <section class="stats" aria-label="Today’s watch time">
+      <div class="total">
+        <span id="todayMins">0</span>
+        <small>/ <span id="todayLimit">30</span> min today</small>
+      </div>
+      <p id="todayStats">Loading today’s watch time…</p>
+      <progress id="todayProgress" max="100" value="0" aria-label="Daily watch limit"></progress>
+    </section>
+
+    <section class="card" aria-labelledby="focus-options">
+      <h2 id="focus-options">Focus</h2>
+      <label>
+        <span>Hide Shorts</span>
+        <input type="checkbox" role="switch" id="hideShorts">
+      </label>
+      <label>
+        <span>Hide recommendations</span>
+        <input type="checkbox" role="switch" id="hideRecommendations">
+      </label>
+      <label>
+        <span>Hide comments</span>
+        <input type="checkbox" role="switch" id="hideComments">
+      </label>
+      <label>
+        <span>Hide homepage feed</span>
+        <input type="checkbox" role="switch" id="hideHomepage">
+      </label>
+      <label>
+        <span>Hide sidebar on watch pages</span>
+        <input type="checkbox" role="switch" id="hideSidebar">
+      </label>
+      <label>
+        <span>Hide top bar, show on hover<small>Mouse to the top to reveal it</small></span>
+        <input type="checkbox" role="switch" id="hideHeaderHover">
+      </label>
+      <label>
+        <span>Hide video info, show on hover<small>Title, channel and description</small></span>
+        <input type="checkbox" role="switch" id="hideVideoInfoHover">
+      </label>
+    </section>
+
+    <section class="card" aria-labelledby="video-stats">
+      <h2 id="video-stats">Video stats</h2>
+      <label>
+        <span>Show estimated dislike count</span>
+        <input type="checkbox" role="switch" id="showDislikes">
+      </label>
+    </section>
+
+    <section class="card" aria-labelledby="focus-timer">
+      <h2 id="focus-timer">Focus timer</h2>
+      <label>
+        <span>Daily watch limit (minutes)<small>0 = no limit</small></span>
+        <input type="number" id="dailyLimitMinutes" min="0" max="600" step="1">
+      </label>
+    </section>
+  </main>
+
+  <footer>Settings may sync with your browser. Watch time stays on this device.</footer>
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

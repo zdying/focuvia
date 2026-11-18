@@ -1,0 +1,47 @@
+{
+  "action": {
+    "default_icon": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "css": [
+        "content.css"
+      ],
+      "js": [
+        "shared.js",
+        "page.js",
+        "timer.js",
+        "content.js"
+      ],
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "description": "YouTube focus extension: hide Shorts, recommendations, comments and homepage feed. Hover to reveal navigation and video info. Daily watch limit and estimated dislike counts.",
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://returnyoutubedislikeapi.com/*"
+  ],
+  "icons": {
+    "128": "icons/icon128.png",
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  },
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "name": "Focuvia",
+  "permissions": [
+    "storage"
+  ],
+  "version": "0.2.0",
+  "minimum_chrome_version": "120"
+}

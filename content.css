@@ -1,0 +1,131 @@
+.focuvia-hide-shorts :is(
+  .focuvia-short,
+  ytd-rich-shelf-renderer[is-shorts],
+  ytd-reel-shelf-renderer,
+  ytd-reel-item-renderer,
+  ytd-shorts,
+  a[title="Shorts"],
+  a[href="/shorts"]
+),
+.focuvia-hide-shorts :is(
+  ytd-shelf-renderer,
+  ytd-video-renderer,
+  ytd-rich-item-renderer,
+  ytd-grid-video-renderer,
+  yt-lockup-view-model,
+  ytd-compact-video-renderer
+):has(a[href^="/shorts/"], [overlay-style="SHORTS"]),
+.focuvia-hide-comments :is(ytd-comments, #comments),
+.focuvia-hide-homepage ytd-browse[page-subtype="home"] :is(ytd-rich-grid-renderer, #contents),
+.focuvia-watch.focuvia-hide-sidebar #secondary,
+.focuvia-watch.focuvia-hide-recommendations :is(#secondary, #related, ytd-watch-next-secondary-results-renderer) {
+  display: none !important;
+}
+
+.focuvia-watch.focuvia-hide-header-hover :is(#masthead, ytd-masthead) {
+  transition: opacity 150ms ease;
+}
+
+.focuvia-watch.focuvia-hide-header-hover :is(#masthead, ytd-masthead):not(:hover):not(:focus-within) {
+  opacity: 0;
+}
+
+.focuvia-watch.focuvia-hide-info-hover #below:not(:hover):not(:focus-within) :is(
+  ytd-watch-metadata,
+  #title,
+  #owner,
+  #actions,
+  #description,
+  #info-contents,
+  ytd-video-primary-info-renderer,
+  ytd-video-secondary-info-renderer
+) {
+  visibility: hidden !important;
+}
+
+[data-focuvia] {
+  font-family: system-ui, sans-serif;
+}
+
+[data-focuvia="dislikes"] {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 8px 12px;
+  border: 1px solid #e8edf3;
+  border-radius: 999px;
+  background: #f6f8fb;
+  color: #334155;
+  font-size: 13px;
+}
+
+[data-focuvia="limit"] {
+  width: min(420px, calc(100vw - 48px));
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+[data-focuvia="limit"]::backdrop {
+  background: rgb(0 0 0 / 85%);
+}
+
+.focuvia-limit-card {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 28px;
+  border-radius: 20px;
+  background: #fff;
+  color: #0f172a;
+  text-align: center;
+  box-shadow: 0 24px 64px rgb(0 0 0 / 40%);
+}
+
+.focuvia-limit-card h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.focuvia-limit-card p {
+  margin: 0 0 16px;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.focuvia-limit-card progress {
+  width: 100%;
+  height: 8px;
+  margin-bottom: 20px;
+  accent-color: #2563eb;
+}
+
+.focuvia-limit-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.focuvia-limit-actions button {
+  padding: 12px 16px;
+  border: 1px solid #e8edf3;
+  border-radius: 999px;
+  background: #fff;
+  color: #0f172a;
+  font: inherit;
+  cursor: pointer;
+}
+
+.focuvia-limit-actions [data-action="extend"] {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: #fff;
+}
+
+.focuvia-limit-actions button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.focuvia-limit-card [data-field="error"]:empty {
+  display: none;
+}

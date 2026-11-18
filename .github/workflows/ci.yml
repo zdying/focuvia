@@ -55,13 +55,6 @@ jobs:
           gh release download "$RELEASE_TAG" --dir "$RUNNER_TEMP/focuvia-published"
           cd "$RUNNER_TEMP/focuvia-published"
           sha256sum --check SHA256SUMS
-      - name: Remove superseded development releases
-        if: github.ref == 'refs/tags/v0.2.2'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh release delete v0.2.0 --yes
-          gh release delete v0.2.1 --yes
       - name: Sync existing release notes
         if: github.ref == 'refs/heads/main'
         env:

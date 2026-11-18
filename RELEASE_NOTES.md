@@ -7,5 +7,3 @@ Focuvia 0.2.0 is a **development preview**, not a browser-store release.
 - Settings may sync through your browser; viewing totals remain local. No Focuvia account or analytics.
 
 Validate downloads using `SHA256SUMS`. Packages contain runtime files and GPLv3, excluding the website, tests and dependencies.
-
-See README and TESTING for the exact automated checks, browser smoke-test results and remaining live YouTube checks. This preview is not a guarantee that every YouTube layout is supported.

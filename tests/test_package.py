@@ -37,3 +37,11 @@ class PackageTests(unittest.TestCase):
                     else:
                         self.assertIn("service_worker", background)
                         self.assertNotIn("scripts", background)
+
+    def test_browser_packages_share_identical_runtime_files(self):
+        with ZipFile(DIST / f"focuvia-{self.version}-chromium.zip") as chromium:
+            with ZipFile(DIST / f"focuvia-{self.version}-firefox.zip") as firefox:
+                self.assertEqual(set(chromium.namelist()), set(firefox.namelist()))
+                for name in chromium.namelist():
+                    if name != "manifest.json":
+                        self.assertEqual(chromium.read(name), firefox.read(name), name)

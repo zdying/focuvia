@@ -7,7 +7,7 @@
 ![Edge 120+](https://img.shields.io/badge/Edge-120%2B-0078D7)
 ![Firefox 142+](https://img.shields.io/badge/Firefox-142%2B-FF7139)
 
-A small Manifest V3 extension for YouTube. Current version: 0.2.0.
+**Watch YouTube on purpose.** Focuvia hides Shorts, recommendations, feeds and comments so you can focus on the videos you came for. Set a daily watch budget, keep playback under control, and view estimated dislike counts — on Chrome, Edge and Firefox.
 
 ## Features
 
@@ -17,13 +17,11 @@ A small Manifest V3 extension for YouTube. Current version: 0.2.0.
 - Add ten minutes or stop watching for the day.
 - Display estimated dislike counts from Return YouTube Dislike.
 
-There is no transcript tool, sponsor skipping, channel filtering, playback adjustment, or screenshot tool.
-
 ## Development preview
 
 [Website](https://zdying.github.io/focuvia/) · [Preview downloads](https://github.com/zdying/focuvia/releases) · [Privacy details](https://zdying.github.io/focuvia/privacy.html)
 
-Browser-store listings are not available yet. Version 0.2.0 is a development preview, not a signed store release. Desktop targets are Chrome/Edge 120+ and Firefox 142+. Live YouTube layout acceptance checks remain outstanding; see [TESTING.md](TESTING.md).
+Browser-store listings are not available yet. Version 0.2.0 is a development preview, not a signed store release. Desktop targets are Chrome/Edge 120+ and Firefox 142+.
 
 ## Install
 
@@ -63,7 +61,9 @@ Outputs:
 - `dist/chromium/` and `dist/firefox/` — folders for developer loading.
 - `dist/SHA256SUMS` — SHA-256 checksums for the ZIP files.
 
-Packages contain runtime assets and GPLv3, excluding website files, tests, development dependencies and local configuration. `manifest.json` is the base configuration; the packaging script generates the Firefox background and browser-specific settings. Package and manifest versions must match.
+All three browsers run **the same JavaScript, CSS, popup and icons**. The two ZIPs differ only in `manifest.json`: Chrome/Edge require a service-worker background entry; Firefox requires a background-scripts entry and Firefox-specific metadata. The packaging script generates both manifests from the single base `manifest.json`, without changing or duplicating the feature code.
+
+Packages contain runtime assets and GPLv3, excluding website files, tests, development dependencies and local configuration. Package and manifest versions must match.
 
 ## Releases
 
@@ -97,12 +97,3 @@ Settings use the browser’s `storage.sync` and may sync through the browser acc
 When dislike counts are enabled, the current video ID is sent to `returnyoutubedislikeapi.com`. Turning the feature off cancels the active request and removes its display. No account, analytics, or extension backend is used.
 
 The extension requests `storage` and access to YouTube and Return YouTube Dislike. It does not request access to all websites.
-
-## Tests
-
-```sh
-npm ci
-npm test
-```
-
-Tests require Node.js compatible with jsdom 31. jsdom is a development dependency only. Tests execute the production scripts with a DOM implementation and a simulated WebExtension API; they do not establish compatibility with a live YouTube session. See [TESTING.md](TESTING.md) for verification results.

@@ -7,15 +7,27 @@
 ![Edge 120+](https://img.shields.io/badge/Edge-120%2B-0078D7)
 ![Firefox 142+](https://img.shields.io/badge/Firefox-142%2B-FF7139)
 
-**Watch YouTube on purpose.** Focuvia hides Shorts, recommendations, feeds and comments so you can focus on the videos you came for. Set a daily watch budget, keep playback under control, and view estimated dislike counts — on Chrome, Edge and Firefox.
+**Watch YouTube on purpose.** Open a video without the recommended sidebar or comments pulling you away. The top bar, title, channel and description stay hidden until you hover for them. Hide YouTube Shorts, and set a daily watch budget: when time's up, the video pauses. Add ten minutes, or stop watching for the day.
 
-## Features
+Focuvia is a desktop YouTube focus extension for Chrome, Edge and Firefox. Its current build is free and open source.
 
-- Hide Shorts, recommendations, comments, the homepage feed, or the watch-page sidebar.
-- Reveal the watch-page header and video information on hover or keyboard focus.
-- Track daily viewing time and pause playback at a chosen limit.
-- Add ten minutes or stop watching for the day.
-- Display estimated dislike counts from Return YouTube Dislike.
+## A quieter watch page
+
+Open the video you came for. By default, the recommendation sidebar and comments are hidden, along with the top bar and video information. Move your pointer to the top to reveal search and navigation, or below the player to reveal the title, channel, actions and description. Those areas keep their space while hidden, so revealing them does not move or resize the player. The top bar also reappears when its controls receive keyboard focus.
+
+The video and its playback controls stay available. Estimated dislike counts appear below the player when enabled. Focuvia currently does not turn off YouTube autoplay or hide suggestions inside the player’s end screen.
+
+## A daily budget with a stopping point
+
+Start with the default 30-minute budget, or choose your own. Open the extension popup to see how many minutes you have watched today and how much of your allowance you have used. Only visible videos that are actually playing count; pausing, seeking and buffering do not use the budget.
+
+When time is up, playback pauses and a dialog appears over the page. Choose **Add 10 minutes** to resume, or **Stop watching** to show **Stopped for today** and keep playback paused. Your total, extra time and stopped state carry across YouTube tabs and page refreshes in the same browser profile on this device. A new local day starts fresh; you can still change the limit or add time.
+
+## Fewer distractions before the video, too
+
+Hide YouTube Shorts shelves, cards and navigation links on supported desktop pages. Version 0.2.1 adds rules for newer Shorts shelves in search results; coverage depends on YouTube’s layout. Regular video search results remain available.
+
+Optionally hide the homepage feed: search for what you need instead of starting with recommendations. Each hiding control can be changed independently. Estimated dislike counts come from Return YouTube Dislike, rather than official YouTube counts; enabling them sends the current video ID to that service.
 
 ## Development preview
 

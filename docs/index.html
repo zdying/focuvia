@@ -8,7 +8,7 @@
 
     <!-- Primary SEO -->
     <title>Focuvia — Hide YouTube Shorts &amp; Recommendations | Coming Soon</title>
-    <meta name="description" content="Preview Focuvia, a free desktop YouTube focus extension in development. Hide Shorts and recommendations, set watch limits, and view estimated dislike counts." />
+    <meta name="description" content="Hide YouTube Shorts, recommendations and comments. Reveal video details on hover, and pause playback at your daily watch limit. Free desktop developer preview." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://zdying.github.io/focuvia/" />
     <meta name="author" content="Focuvia" />
@@ -22,7 +22,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Focuvia" />
     <meta property="og:title" content="Focuvia — Hide YouTube Distractions | Coming Soon" />
-    <meta property="og:description" content="A free desktop extension in development to hide YouTube distractions and set daily watch limits. Public installation is not available yet." />
+    <meta property="og:description" content="A quieter YouTube watch page: hide Shorts, recommendations and comments, reveal details on hover, and pause when your daily budget runs out. Developer preview available." />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
@@ -30,7 +30,7 @@
     <meta name="twitter:image" content="https://zdying.github.io/focuvia/images/social-preview.png" />
     <meta name="twitter:image:alt" content="Focuvia — Hide YouTube distractions. Watch on purpose. Desktop extension in development." />
     <meta name="twitter:title" content="Focuvia — Hide YouTube Distractions | Coming Soon" />
-    <meta name="twitter:description" content="Preview a free desktop YouTube focus extension. Public installation is coming soon; read the feature preview, compatibility limits and privacy details." />
+    <meta name="twitter:description" content="Hide YouTube Shorts and recommendations. Keep video details out of sight until you hover, and pause at your daily watch limit. Free desktop developer preview." />
 
     <!-- Structured data matches the current prerelease and visible FAQ. -->
     <script type="application/ld+json">
@@ -42,11 +42,13 @@
       "operatingSystem": "Desktop operating systems with Chrome 120+",
       "softwareRequirements": "Chrome 120+; www.youtube.com; public release pending; Edge 120+ or Firefox 142+ using the browser-specific development package",
       "softwareVersion": "0.2.1",
-      "description": "A free desktop YouTube focus extension in development. Hides recognized Shorts elements, recommendations, the homepage feed and comments, with a daily watch budget and third-party estimated dislike counts. Public store installation is not available yet.",
+      "description": "A free desktop YouTube focus extension in development. Hides recognized Shorts elements, the recommendation sidebar and comments; reveals the top bar and video information on hover; and pauses playback at a daily watch limit. Includes optional homepage hiding and third-party estimated dislike counts. Developer packages are available; public store installation is not available yet.",
       "featureList": [
         "Hide recognized Shorts elements",
         "Hide recommendations, homepage feed and comments",
-        "Daily watch budget",
+        "Reveal the top bar and video information on hover without moving the player",
+        "Daily watch limit with automatic pause, Add 10 minutes and Stop watching",
+        "Daily viewing totals, extra time and stopped state persist across tabs and refreshes on this device",
         "Estimated dislike counts via Return YouTube Dislike"
       ],
       "@id": "https://zdying.github.io/focuvia/#software",
@@ -112,7 +114,7 @@
           "name": "Will Focuvia hide videos I search for?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Regular video search results remain available, but Hide Shorts also removes recognized Shorts cards and shelves from search results. You can turn Hide Shorts off. Hiding elements does not prevent opening a Shorts URL directly."
+            "text": "Regular video search results remain available. Hide Shorts targets recognized Shorts cards and shelves in search results; version 0.2.1 adds rules for newer search shelves. Coverage depends on YouTube’s layout and may require updates. You can turn Hide Shorts off. Hiding elements does not prevent opening a Shorts URL directly."
           }
         }
       ],
@@ -431,7 +433,7 @@
         <div class="hero-copy">
           <p class="kicker">Free desktop extension · In development</p>
           <h1>Hide YouTube Shorts &amp; recommendations. <span class="hl">Watch on purpose.</span></h1>
-          <p class="lede">Fewer feeds. Fewer rabbit holes. Hide Shorts, recommendations and comments, and set a daily watch budget for desktop YouTube.</p>
+          <p class="lede">Open a video without the recommendation sidebar or comments. The top bar, title and channel stay out of sight until you hover. When your daily watch budget runs out, playback pauses — add 10 minutes, or stop for the day.</p>
 
           <div class="answer" id="short-answer">
             <p class="a-label">The short answer</p>
@@ -564,29 +566,43 @@
         <div class="wrap">
           <div class="sec-head">
             <p class="sec-tag">What Focuvia does</p>
-            <h2>It hides the feed, not the videos you want</h2>
-            <p>Regular video search results remain available. Enabling Hide Shorts also removes recognized Shorts cards and shelves from search results. Hiding page elements does not prevent opening a Shorts URL or changing your settings.</p>
+            <h2>Open a video. Let the rest fade away.</h2>
+            <p>The recommendation sidebar and comments are hidden. The top bar, title, channel and description wait until you hover — without moving or resizing the player. Search for the video you need, watch it, and have a clear point to stop.</p>
           </div>
           <div class="features">
+            <div class="feature">
+              <span class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h8M8 17h5"/></svg></span>
+              <div>
+                <h3>Hover to reveal</h3>
+                <p>The top bar, title, channel, actions and description stay hidden until you need them. Hover at the top or below the player to bring them back. Their space is preserved, so the player stays put. The top bar also appears when its controls receive keyboard focus.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <span class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2.5h6"/></svg></span>
+              <div>
+                <h3>Daily watch limit &amp; focus timer</h3>
+                <p>Set a daily budget — 30 minutes is the default — and check today’s watched minutes in the popup. Only visible videos that are actually playing count. When time’s up, playback pauses and a dialog lets you add 10 minutes or stop watching for the day. Choose Stop watching to see “Stopped for today.” Your total, extra time and stopped state carry across tabs and refreshes in the same browser profile on this device; a new local day starts fresh.</p>
+              </div>
+            </div>
             <div class="feature">
               <span class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></span>
               <div>
                 <h3>Hide Shorts shelves and cards</h3>
-                <p>Targets recognized Shorts shelves, cards and navigation links on supported desktop YouTube pages, including search results. Coverage depends on YouTube's page layout.</p>
+                <p>Hide YouTube Shorts shelves, cards and navigation links on supported desktop pages. Version 0.2.1 adds rules for newer Shorts shelves in search results. Regular video results stay available; Shorts coverage depends on YouTube’s layout.</p>
               </div>
             </div>
             <div class="feature">
               <span class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13"/></svg></span>
               <div>
                 <h3>Hide recommendations &amp; the homepage feed</h3>
-                <p>Hide the watch-page recommendation sidebar, and optionally hide the homepage feed. These are separate controls; end-screen suggestions are not currently covered.</p>
+                <p>Open a video without a sidebar of suggested next watches. Optionally hide the homepage feed, too: search for what you need, watch it, close the tab. These are separate controls. Autoplay and suggestions inside the player’s end screen are not changed.</p>
               </div>
             </div>
             <div class="feature">
               <span class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg></span>
               <div>
                 <h3>Hide comments</h3>
-                <p>Hide the comment section. Separate controls reveal the top bar and video details on hover or keyboard focus, keeping controls accessible when you need them.</p>
+                <p>Stay with the video instead of drifting into the discussion below it. Comments are hidden by default; turn the setting off whenever you want to read or join the conversation.</p>
               </div>
             </div>
             <div class="feature">
@@ -594,13 +610,6 @@
               <div>
                 <h3>Dislike count, restored</h3>
                 <p>YouTube stopped showing dislike counts in 2021. Focuvia requests estimated counts from Return YouTube Dislike on video watch pages. Results depend on third-party availability and are not official YouTube counts.</p>
-              </div>
-            </div>
-            <div class="feature">
-              <span class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2.5h6"/></svg></span>
-              <div>
-                <h3>Daily watch limit &amp; focus timer</h3>
-                <p>Set a daily budget — 30 minutes is the default. Visible, playing videos contribute to the budget; pauses, seeking and buffering do not. When the allowance is reached, playback pauses. You can add time or change the limit.</p>
               </div>
             </div>
             <div class="feature">
@@ -623,7 +632,7 @@
           </div>
           <div class="facts">
             <dl>
-              <div class="row"><dt>WHAT IT IS</dt><dd>A free desktop YouTube focus extension in development, with controls for Shorts, recommendations, the homepage feed, comments, watch limits and estimated dislike counts.</dd></div>
+              <div class="row"><dt>WHAT IT IS</dt><dd>A free desktop YouTube focus extension in development. Hide Shorts, the recommendation sidebar and comments; reveal the top bar and video details on hover; and pause playback when your daily watch budget runs out.</dd></div>
               <div class="row"><dt>RELEASE STATUS</dt><dd>Development build 0.2.1. Public store release pending; timing is not confirmed.</dd></div>
               <div class="row"><dt>PRICE</dt><dd>The current development build is free, with no subscription, Focuvia account or ads. Public store installation is not yet available.</dd></div>
               <div class="row"><dt>PLATFORMS</dt><dd>Desktop development targets: Chrome/Edge 120+ and Firefox 142+. The current build matches www.youtube.com, not m.youtube.com or the YouTube mobile app.</dd></div>
@@ -662,7 +671,7 @@
                 </tr>
                 <tr>
                   <th scope="row">Focus tools</th>
-                  <td class="us" data-col="Focuvia">Configurable daily playback budget</td>
+                  <td class="us" data-col="Focuvia">Daily watch limit with automatic pause, Add 10 minutes and Stop watching; progress persists across tabs and refreshes on this device</td>
                   <td data-col="UnTrap">Schedules and focus controls listed; plan varies</td>
                   <td data-col="Unhook">Hiding controls and autoplay options listed</td>
                 </tr>
@@ -717,13 +726,13 @@
             </div>
             <div class="step">
               <p class="n">STEP 02</p>
-              <h3>Flip the switches</h3>
-              <p>In the current build, Shorts, recommendations and comments are hidden by default; homepage hiding is optional. Estimated dislike counts are also on by default. Turn them off to stop the third-party API requests.</p>
+              <h3>Open a quieter watch page</h3>
+              <p>Shorts, the recommendation sidebar and comments are hidden by default. Hover at the top or below the player for navigation and video details. Homepage hiding is optional. Estimated dislike counts are on by default; turn them off to stop third-party requests.</p>
             </div>
             <div class="step">
               <p class="n">STEP 03</p>
               <h3>Set your daily limit</h3>
-              <p>Pick a watch budget that fits your day. When time's up, the video pauses — and your evening is still yours.</p>
+              <p>Start with 30 minutes or choose your own budget. Check today’s total in the popup. When time’s up, playback pauses: add 10 minutes or stop watching for the day. Refreshing the page does not reset your total.</p>
             </div>
           </div>
         </div>
@@ -782,7 +791,7 @@
             </details>
             <details>
               <summary>Will Focuvia hide videos I search for?<span class="plus" aria-hidden="true">+</span></summary>
-              <div class="a"><p>Regular video search results remain available, but Hide Shorts also removes recognized Shorts cards and shelves from search results. You can turn Hide Shorts off. Hiding elements does not prevent opening a Shorts URL directly.</p></div>
+              <div class="a"><p>Regular video search results remain available. Hide Shorts targets recognized Shorts cards and shelves in search results; version 0.2.1 adds rules for newer search shelves. Coverage depends on YouTube’s layout and may require updates. You can turn Hide Shorts off. Hiding elements does not prevent opening a Shorts URL directly.</p></div>
             </details>
           </div>
         </div>

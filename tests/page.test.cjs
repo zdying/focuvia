@@ -24,6 +24,27 @@ test("page cleanup owns its classes and leaves existing inline styles alone", t 
   assert.equal(document.querySelector("#regular").style.display, "none");
 });
 
+test("homepage videos remain visible with legacy settings while Shorts are filtered", t => {
+  const { window, controller } = page(t, {
+    url: "https://www.youtube.com/",
+    html: `<style>${fs.readFileSync("content.css", "utf8")}</style>
+      <ytd-browse page-subtype="home"><ytd-rich-grid-renderer><div id="contents">
+        <ytd-rich-item-renderer id="regular"><a href="/watch?v=regular">Regular video</a></ytd-rich-item-renderer>
+        <ytd-rich-item-renderer id="short"><a href="/shorts/123">Short video</a></ytd-rich-item-renderer>
+      </div></ytd-rich-grid-renderer></ytd-browse>`
+  });
+  const settings = window.Focuvia.readSettings({ hideHomepage: true, showDislikes: false });
+  assert.equal("hideHomepage" in settings, false);
+  controller.update(settings);
+  const doc = window.document;
+  for (const selector of ["ytd-rich-grid-renderer", "#contents", "#regular"]) {
+    assert.notEqual(window.getComputedStyle(doc.querySelector(selector)).display, "none");
+  }
+  assert.equal(window.getComputedStyle(doc.querySelector("#short")).display, "none");
+  controller.update({ ...settings, hideShorts: false });
+  assert.notEqual(window.getComputedStyle(doc.querySelector("#short")).display, "none");
+});
+
 test("new Shorts cards are detected without revisiting the full document", async t => {
   const { window, controller, settings } = page(t);
   controller.update(settings);

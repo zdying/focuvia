@@ -3,7 +3,6 @@
     hideShorts: true,
     hideRecommendations: true,
     hideComments: true,
-    hideHomepage: false,
     hideSidebar: false,
     hideHeaderHover: true,
     hideVideoInfoHover: true,

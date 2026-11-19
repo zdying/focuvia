@@ -13,7 +13,6 @@ Focuvia.createPage = function () {
     hideShorts: "focuvia-hide-shorts",
     hideRecommendations: "focuvia-hide-recommendations",
     hideComments: "focuvia-hide-comments",
-    hideHomepage: "focuvia-hide-homepage",
     hideSidebar: "focuvia-hide-sidebar",
     hideHeaderHover: "focuvia-hide-header-hover",
     hideVideoInfoHover: "focuvia-hide-info-hover"

@@ -42,14 +42,13 @@
       "applicationCategory": "BrowserApplication",
       "operatingSystem": "Desktop operating systems with Chrome, Edge or Firefox",
       "softwareRequirements": "Chrome 120+, Edge 120+ or Firefox 142+; desktop www.youtube.com",
-      "softwareVersion": "0.2.2",
+      "softwareVersion": "0.2.3",
       "description": "A desktop YouTube focus extension for a quieter watch page. Hides recognized Shorts elements, the recommendation sidebar and comments; reveals the top bar and video details on hover; and pauses playback at a daily watch limit. Free developer preview for Chrome, Edge and Firefox.",
       "featureList": [
         "Hide the watch-page recommendation sidebar and comments",
         "Reveal the top bar, title, channel and description on hover",
         "Hide recognized YouTube Shorts shelves, cards and navigation links",
         "Set a daily watch limit with automatic pause, Add 10 minutes and Stop watching",
-        "Optionally hide the homepage feed",
         "Estimated dislike counts via Return YouTube Dislike"
       ],
       "@id": "https://zdying.github.io/focuvia/#software",
@@ -605,7 +604,7 @@
               <span class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13"/></svg></span>
               <div>
                 <h3>Hide YouTube recommendations</h3>
-                <p>Open a video without a sidebar of suggested next watches. Optionally hide the homepage feed, too: search for what you need, watch it, close the tab. These are separate controls. Autoplay and suggestions inside the player’s end screen are not changed.</p>
+                <p>Open a video without a sidebar of suggested next watches. The homepage feed stays available with Shorts filtered out when Hide Shorts is on. Autoplay and suggestions inside the player’s end screen are not changed.</p>
               </div>
             </div>
             <div class="feature">
@@ -643,7 +642,7 @@
           <div class="facts">
             <dl>
               <div class="row"><dt>WHAT IT IS</dt><dd>A free desktop YouTube focus extension in development. Hide Shorts, the recommendation sidebar and comments; reveal the top bar and video details on hover; and pause playback when your daily watch limit is reached.</dd></div>
-              <div class="row"><dt>RELEASE STATUS</dt><dd>Development build 0.2.2. Public store release pending; timing is not confirmed.</dd></div>
+              <div class="row"><dt>RELEASE STATUS</dt><dd>Development build 0.2.3. Public store release pending; timing is not confirmed.</dd></div>
               <div class="row"><dt>PRICE</dt><dd>The current development build is free, with no subscription, Focuvia account or ads. Public store installation is not yet available.</dd></div>
               <div class="row"><dt>PLATFORMS</dt><dd>Desktop development targets: Chrome/Edge 120+ and Firefox 142+. The current build matches www.youtube.com, not m.youtube.com or the YouTube mobile app.</dd></div>
               <div class="row"><dt>PRIVACY</dt><dd>No Focuvia account, analytics or backend. Settings may sync through your browser account. Viewing totals stay local. Estimated dislike requests share the current video ID with Return YouTube Dislike; see the <a href="privacy.html">privacy details</a>.</dd></div>
@@ -731,7 +730,7 @@
           <div class="steps">
             <div class="step">
               <h3>Chrome 120+</h3>
-              <a class="btn btn-primary" href="https://github.com/zdying/focuvia/releases/download/v0.2.2/focuvia-0.2.2-chromium.zip">Download for Chrome</a>
+              <a class="btn btn-primary" href="https://github.com/zdying/focuvia/releases/download/v0.2.3/focuvia-0.2.3-chromium.zip">Download for Chrome</a>
               <ol>
                 <li>Download and unzip the file.</li>
                 <li>Open <code>chrome://extensions</code> and turn on <strong>Developer mode</strong>.</li>
@@ -740,7 +739,7 @@
             </div>
             <div class="step">
               <h3>Edge 120+</h3>
-              <a class="btn btn-primary" href="https://github.com/zdying/focuvia/releases/download/v0.2.2/focuvia-0.2.2-chromium.zip">Download for Edge</a>
+              <a class="btn btn-primary" href="https://github.com/zdying/focuvia/releases/download/v0.2.3/focuvia-0.2.3-chromium.zip">Download for Edge</a>
               <ol>
                 <li>Download and unzip the file.</li>
                 <li>Open <code>edge://extensions</code> and turn on <strong>Developer mode</strong>.</li>
@@ -749,7 +748,7 @@
             </div>
             <div class="step">
               <h3>Firefox 142+</h3>
-              <a class="btn btn-primary" href="https://github.com/zdying/focuvia/releases/download/v0.2.2/focuvia-0.2.2-firefox.zip">Download for Firefox</a>
+              <a class="btn btn-primary" href="https://github.com/zdying/focuvia/releases/download/v0.2.3/focuvia-0.2.3-firefox.zip">Download for Firefox</a>
               <ol>
                 <li>Download and unzip the file.</li>
                 <li>Open <code>about:debugging#/runtime/this-firefox</code>.</li>

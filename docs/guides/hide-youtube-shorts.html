@@ -41,13 +41,13 @@
       <h1>How to hide YouTube Shorts on desktop and mobile</h1>
       <p class="meta">Updated <time datetime="2026-11-18">November 18, 2026</time></p>
       <p><strong>To hide Shorts on desktop, use a browser extension that supports your browser and YouTube’s current layout.</strong> In the YouTube mobile app, browser extensions do not apply; device app timers can limit usage instead. Hiding Shorts elements is different from blocking every way to access Shorts.</p>
-      <p class="notice">Focuvia is in development. There are no public store installation links yet; developer packages are available from <a href="https://github.com/zdying/focuvia/releases/tag/v0.2.2">GitHub prereleases</a>. Desktop packages target Chrome/Edge 120+ and Firefox 142+ on <code>www.youtube.com</code>. Firefox development installation is temporary until signing is complete.</p>
+      <p class="notice">Focuvia is in development. There are no public store installation links yet; developer packages are available from <a href="https://github.com/zdying/focuvia/releases/tag/v0.2.3">GitHub prereleases</a>. Desktop packages target Chrome/Edge 120+ and Firefox 142+ on <code>www.youtube.com</code>. Firefox development installation is temporary until signing is complete.</p>
       <nav aria-label="Guide contents"><a href="#desktop">Desktop setup</a> · <a href="#mobile">iPhone and Android</a> · <a href="#limits">Hiding vs. blocking</a> · <a href="#troubleshooting">Troubleshooting</a></nav>
       <h2 id="desktop">Desktop: Focuvia developer preview setup</h2>
       <ol>
         <li><strong>Check availability first.</strong> Visit the <a href="../#install">Focuvia release section</a>. Download and extract the matching developer package. Chrome and Edge use Load unpacked; Firefox uses Load Temporary Add-on. Follow the <a href="https://github.com/zdying/focuvia#install">browser-specific installation steps</a>. Store installation is not available yet.</li>
         <li><strong>Review permissions and install.</strong> The current build requests storage, desktop YouTube access and access to the Return YouTube Dislike API. See the <a href="../privacy.html">privacy details</a> before enabling it.</li>
-        <li><strong>Review the popup settings.</strong> In the current build, Hide Shorts, Hide recommendations and Hide comments default to on. Hiding the homepage feed is a separate option and defaults to off.</li>
+        <li><strong>Review the popup settings.</strong> In the current build, Hide Shorts, Hide recommendations and Hide comments default to on. The homepage feed remains available with Shorts filtered out.</li>
         <li><strong>Decide whether to show dislike estimates.</strong> They are on by default and send the current video ID to a third-party service. Turn “Show estimated dislike count” off if you do not want these requests.</li>
         <li><strong>Check the YouTube pages you use.</strong> Recognized Shorts cards, shelves and navigation entries should be hidden when Hide Shorts is enabled. Regular video search results remain, but recognized Shorts results are hidden too. Check the homepage, search and watch page separately.</li>
       </ol>
@@ -62,11 +62,11 @@
       <h2 id="troubleshooting">If Shorts still appear</h2>
       <ol>
         <li>Confirm you are on <code>www.youtube.com</code> in a supported desktop browser, with the extension enabled and allowed to access the site.</li>
-        <li>Open the popup and check Hide Shorts. Hiding the homepage feed or recommendations is a separate setting.</li>
+        <li>Open the popup and check Hide Shorts. Hiding recommendations is a separate setting.</li>
         <li>Reload YouTube after changing extension permissions or installing an update. Compare a homepage shelf, a search result and a watch-page sidebar rather than assuming one check covers all layouts.</li>
         <li>If one layout remains visible, note the browser version, extension version and affected page type for a bug report. Avoid sharing private watch history or account information.</li>
       </ol>
-      <p class="meta">Focuvia behavior above was checked against development build 0.2.2 source. External references were reviewed November 18, 2026; availability can change.</p>
+      <p class="meta">Focuvia behavior above was checked against development build 0.2.3 source. External references were reviewed November 18, 2026; availability can change.</p>
     </main>
     <footer><a href="../">Product preview</a> · <a href="../privacy.html">Privacy details</a> · <a href="../guides/hide-youtube-shorts.html">Shorts guide</a><p class="meta">Focuvia is not affiliated with YouTube or Google.</p></footer>
   </body>
